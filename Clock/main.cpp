@@ -130,12 +130,6 @@ int main()
 	}
 
 
-	/*if (!al_init_font_addon()) {
-		std::cerr << "Failed to initialize Allegro font addon" << std::endl;
-		return -1;
-	}*/
-
-
 	// DISPLAY
 	ALLEGRO_DISPLAY* display = al_create_display(WIDTH, HEIGHT);
 
