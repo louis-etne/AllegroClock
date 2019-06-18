@@ -11,8 +11,8 @@
 #define M_2PI 2 * M_PI
 
 #define FPS 1
-#define WIDTH 600
-#define HEIGHT 600
+#define WIDTH 900
+#define HEIGHT 900
 
 
 struct Clock
@@ -69,20 +69,20 @@ struct Clock
 
 		// Draw hours hand
 		al_draw_line(
-			x - std::sin(hours * (M_2PI / 12)) * 20
-			, y + std::cos(hours * (M_2PI / 12)) * 20
-			, x + std::sin(hours * (M_2PI / 12)) * (r - double(80))
-			, y - std::cos(hours * (M_2PI / 12)) * (r - double(80))
+			x - std::sin(hours * (M_2PI / 12) + minutes * (M_2PI / (12.0 * 60)) + seconds * (M_2PI / (12.0 * 3600))) * 20
+			, y + std::cos(hours * (M_2PI / 12) + minutes * (M_2PI / (12.0 * 60)) + seconds * (M_2PI / (12.0 * 3600))) * 20
+			, x + std::sin(hours * (M_2PI / 12) + minutes * (M_2PI / (12.0 * 60)) + seconds * (M_2PI / (12.0 * 3600))) * (r - double(80))
+			, y - std::cos(hours * (M_2PI / 12) + minutes * (M_2PI / (12.0 * 60)) + seconds * (M_2PI / (12.0 * 3600))) * (r - double(80))
 			, al_map_rgb(255, 0, 0)
 			, 10
 		);
 
 		// Draw minutes hand
 		al_draw_line(
-			x - std::sin(minutes * (M_2PI / 60)) * 20
-			, y + std::cos(minutes * (M_2PI / 60)) * 20
-			, x + std::sin(minutes * (M_2PI / 60)) * (r - double(20))
-			, y - std::cos(minutes * (M_2PI / 60)) * (r - double(20))
+			x - std::sin(minutes * (M_2PI / 60) + seconds * (M_2PI / 3600)) * 20
+			, y + std::cos(minutes * (M_2PI / 60) + seconds * (M_2PI / 3600)) * 20 
+			, x + std::sin(minutes * (M_2PI / 60) + seconds * (M_2PI / 3600)) * (r - double(20))
+			, y - std::cos(minutes * (M_2PI / 60) + seconds * (M_2PI / 3600)) * (r - double(20))
 			, al_map_rgb(0, 255, 0)
 			, 5
 		);
@@ -100,7 +100,6 @@ struct Clock
 		// Draw center circle
 		al_draw_filled_circle(x, y, 10, al_map_rgb(0, 0, 0));
 	}
-
 };
 
 
