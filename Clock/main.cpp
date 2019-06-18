@@ -40,8 +40,6 @@ struct Clock
 
 	void draw(double x, double y, double r)
 	{
-		refresh();
-
 		// Draw dial
 		al_draw_filled_circle(x, y, r, al_map_rgb(255, 255, 255));
 
